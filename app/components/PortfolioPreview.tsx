@@ -1,15 +1,10 @@
 import Link from "next/link";
-
-const projects = [
-  { number: 1, label: "Store Redesign" },
-  { number: 2, label: "Product Listings" },
-  { number: 3, label: "Conversion Optimization" },
-];
+import { storeShowcases } from "@/app/lib/data";
 
 export default function PortfolioPreview() {
   return (
     <section className="bg-background px-6 py-14 md:py-20">
-      <div className="mx-auto max-w-4xl">
+      <div className="mx-auto max-w-2xl">
         <p className="text-center text-sm font-medium uppercase tracking-wide text-accent">
           My Work
         </p>
@@ -20,19 +15,34 @@ export default function PortfolioPreview() {
           A few stores I&apos;ve designed, built, and optimized for clients.
         </p>
 
-        <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-3">
-          {projects.map((project) => (
-            <div
-              key={project.number}
-              className="group relative flex aspect-[4/5] flex-col items-center justify-center gap-2 overflow-hidden rounded-2xl border border-border bg-surface transition-colors hover:border-accent"
-            >
-              <i
-                className="ri-store-2-line text-4xl text-ink/30"
-                aria-hidden="true"
-              />
-              <p className="text-sm text-ink/40">Project {project.number}</p>
-              <div className="absolute inset-x-0 bottom-0 border-t border-border bg-background/95 px-3 py-2 text-center text-sm font-medium text-ink">
-                {project.label}
+        <div className="mt-10 space-y-6">
+          {storeShowcases.map((item) => (
+            <div key={item.id}>
+              <div className="relative aspect-video overflow-hidden rounded-2xl border border-border bg-black">
+                <iframe
+                  src={`https://www.youtube.com/embed/${item.youtubeId}`}
+                  title={item.title}
+                  className="h-full w-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+              <div className="mt-3 flex flex-wrap items-center justify-between gap-2">
+                <p className="text-sm font-semibold text-ink">{item.title}</p>
+                {item.storeUrl && (
+                  <a
+                    href={item.storeUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 rounded-full border border-border bg-surface px-4 py-2 text-sm font-medium text-ink transition-colors hover:border-accent hover:text-accent"
+                  >
+                    Visit Store
+                    <i
+                      className="ri-external-link-line text-base"
+                      aria-hidden="true"
+                    />
+                  </a>
+                )}
               </div>
             </div>
           ))}

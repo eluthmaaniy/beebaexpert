@@ -72,11 +72,13 @@ export const telegramLink = "https://t.me/Beebaexpert";
 
 export const clientReviews = [
   { id: "1", youtubeId: "HMkiyNIRlzk", clientName: "Client Testimonial" },
-  { id: "2", youtubeId: "REPLACE_ME_2", clientName: "Client Testimonial" },
-  { id: "3", youtubeId: "REPLACE_ME_3", clientName: "Client Testimonial" },
 ];
 
 export const storeShowcases = [
-  { id: "1", youtubeId: "REPLACE_ME_4", title: "Store Build Walkthrough" },
-  { id: "2", youtubeId: "REPLACE_ME_5", title: "Store Build Walkthrough" },
+  {
+    id: "1",
+    youtubeId: "7vkqqscmcFw",
+    title: "G&R Gifts — Shopify Store Build",
+    storeUrl: "https://gandrgifts23.com",
+  },
 ];
